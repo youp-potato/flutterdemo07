@@ -25,6 +25,64 @@ class _TabsState extends State<Tabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Flutter App")),
+      drawer:  Drawer(   //侧边栏组件 支持手指滑动
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  // child: DrawerHeader(
+                  //     decoration: BoxDecoration(
+                  //         color: Colors.blueGrey,
+                  //       // image: DecorationImage(
+                  //       //   image: NetworkImage("https://www.itying.com/images/flutter/2.png"),fit: BoxFit.cover
+                  //       // ),
+                  //     ),
+                  //     child: Column(
+                  //       children: [
+                  //         ListTile(
+                  //           leading: CircleAvatar(
+                  //
+                  //             backgroundImage: NetworkImage("https://www.itying.com/images/flutter/2.png",),
+                  //           ),
+                  //           title: Text("姓名",style: TextStyle(color: Colors.white),),
+                  //         )
+                  //       ],
+                  //     )
+                  // ),
+                  child: UserAccountsDrawerHeader(
+                    accountName: const Text("张三"),
+                    accountEmail: const Text("zhangsan@123.com"),
+                    // decoration: BoxDecoration(
+                    //   image: DecorationImage(image: NetworkImage("https://www.itying.com/images/flutter/2.png"),fit: BoxFit.cover)
+                    // ),
+                    currentAccountPicture: const CircleAvatar(
+                      backgroundImage: NetworkImage("https://www.itying.com/images/flutter/2.png"),
+                    ),
+                    otherAccountsPictures: [
+                      Image.network("https://www.itying.com/images/flutter/3.png"),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            const ListTile(
+              leading: CircleAvatar(
+                child: Icon(Icons.people),
+              ),
+              title: Text("个人中心"),
+            ),
+            const Divider(),
+            const ListTile(
+              leading: CircleAvatar(
+                child: Icon(Icons.settings),
+              ),
+              title: Text("系统设置"),
+            ),
+          ],
+        ),
+      ),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
           fixedColor: Colors.red, //选中的颜色
