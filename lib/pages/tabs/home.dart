@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage>
         //可以配置AppBar的高度
         preferredSize: const Size.fromHeight(40),
         child: AppBar(
+
             elevation: 1,
             backgroundColor: Colors.white,
             title: SizedBox(
