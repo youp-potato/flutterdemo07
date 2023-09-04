@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 
 class FormPage extends StatefulWidget {
-  const FormPage({super.key});
+  //其他页面跳转到form页面进行命名路由传值
+  final Map arguments;
+
+  const FormPage({super.key,required this.arguments});
 
   @override
   State<FormPage> createState() => _FormPageState();
 }
 
 class _FormPageState extends State<FormPage> {
+
+  @override
+  void initState() {
+    super.initState();
+    print(widget.arguments);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
